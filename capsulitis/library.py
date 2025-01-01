@@ -12,7 +12,7 @@ def make_empty_score():
 
 
 def symlink_music_ily_from_segment_directory_to_build_directory(segment_name):
-    segment_directory = pathlib.Path() / "sisyphus" / "segments" / segment_name
+    segment_directory = pathlib.Path() / "capsulitis" / "segments" / segment_name
     music_ily_path = segment_directory / "music.ily"
     _sections_path = segment_directory.parents[1] / "builds" / "score" / "_sections"
     target_path = _sections_path / (segment_name + ".ily")

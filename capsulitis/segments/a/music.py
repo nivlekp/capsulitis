@@ -4,8 +4,8 @@ import abjad
 import pang
 from abjadext import nauert
 
-from sisyphus import library
-from sisyphus.soundpointsgenerators import SoundPointsGenerator
+from capsulitis import library
+from capsulitis.soundpointsgenerators import SoundPointsGenerator
 
 
 def main() -> None:

@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 allow-direct-references = true
 
 [project]
-name = "sisyphus"
+name = "capsulitis"
 version = "24.12b3"
 authors = [
     { name="Tsz Kiu Pang" },
@@ -35,4 +35,4 @@ test = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["sisyphus"]
+packages = ["capsulitis"]

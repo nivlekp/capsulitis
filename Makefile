@@ -60,7 +60,7 @@ isort-reformat:
 mypy:
 	mypy .
 
-project = sisyphus
+project = capsulitis
 
 pytest:
 	pytest .
@@ -81,7 +81,7 @@ test:
 	make isort-check
 	make pytest
 
-score_directory = sisyphus/builds/score
+score_directory = capsulitis/builds/score
 
 full-score:
 	@make_score

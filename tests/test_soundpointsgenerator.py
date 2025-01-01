@@ -1,6 +1,6 @@
 import itertools
 
-from sisyphus.soundpointsgenerators import SoundPointsGenerator
+from capsulitis.soundpointsgenerators import SoundPointsGenerator
 
 
 def test_sound_points_are_non_overlapping():
