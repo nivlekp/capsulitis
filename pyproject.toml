@@ -11,7 +11,7 @@ version = "25.1b0"
 authors = [
     { name="Tsz Kiu Pang" },
 ]
-description = "Sisyphus"
+description = "Capsulitis"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [

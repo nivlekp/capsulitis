@@ -7,16 +7,13 @@ from abjadext import nauert
 from capsulitis import library
 from capsulitis.soundpointsgenerators import SoundPointsGenerator
 
+DIVISION = 7
+BEATS_PER_MINUTE = 78
+DURATION_PER_NOTE = 60 / BEATS_PER_MINUTE / DIVISION
+
 
 def main() -> None:
     score = library.make_empty_score()
-    q_schema = nauert.MeasurewiseQSchema(
-        search_tree=nauert.UnweightedSearchTree(definition={5: None}),
-        tempo=abjad.MetronomeMark(
-            abjad.Duration(1, 4), fractions.Fraction(78), decimal=True
-        ),
-        time_signature=(4, 4),
-    )
     quantizing_metadata = pang.populate_voices_from_sequence(
         pang.Sequence.from_sequences(
             (
@@ -28,7 +25,7 @@ def main() -> None:
         (
             pang.VoiceSpecification(
                 score[library.VOICE_NAME],
-                q_schema=q_schema,
+                q_schema=_q_schema(),
                 grace_handler=nauert.DiscardingGraceHandler(),
             ),
         ),
@@ -39,13 +36,23 @@ def main() -> None:
     library.symlink_music_ily_from_segment_directory_to_build_directory("a")
 
 
+def _q_schema() -> nauert.QSchema:
+    return nauert.MeasurewiseQSchema(
+        search_tree=nauert.UnweightedSearchTree(definition={DIVISION: None}),
+        tempo=abjad.MetronomeMark(
+            abjad.Duration(1, 4), fractions.Fraction(BEATS_PER_MINUTE), decimal=True
+        ),
+        time_signature=(4, 4),
+    )
+
+
 def _generate_first_sequence() -> pang.Sequence:
     return pang.Sequence.from_sound_points_generator(
         sound_points_generator=SoundPointsGenerator(
-            (0.1538, 0.3076),
+            (DURATION_PER_NOTE, DURATION_PER_NOTE * 2),
             (0.7, 0.3),
-            1,
-            0.3076,
+            DURATION_PER_NOTE * 10,
+            DURATION_PER_NOTE * 5,
             1,
             pang.gen_pitches_from_sieve(
                 abjad.Pattern(
@@ -55,7 +62,7 @@ def _generate_first_sequence() -> pang.Sequence:
                 low=-7,
                 high=24,
             ),
-            seed=6899778665656846847236458726385,
+            seed=932749823794817938749128379464,
         ),
         sequence_duration=20,
     )
@@ -64,10 +71,10 @@ def _generate_first_sequence() -> pang.Sequence:
 def _generate_second_sequence() -> pang.Sequence:
     return pang.Sequence.from_sound_points_generator(
         sound_points_generator=SoundPointsGenerator(
-            (0.1538, 0.3076),
+            (DURATION_PER_NOTE, DURATION_PER_NOTE * 2),
             (0.7, 0.3),
-            1,
-            0.3076,
+            DURATION_PER_NOTE * 10,
+            DURATION_PER_NOTE * 5,
             1,
             pang.gen_pitches_from_sieve(
                 abjad.Pattern(
@@ -77,7 +84,7 @@ def _generate_second_sequence() -> pang.Sequence:
                 low=-7,
                 high=24,
             ),
-            seed=928374982739827398,
+            seed=28736483686191663276472395,
         ),
         sequence_duration=20,
     )
@@ -86,10 +93,10 @@ def _generate_second_sequence() -> pang.Sequence:
 def _generate_third_sequence() -> pang.Sequence:
     return pang.Sequence.from_sound_points_generator(
         sound_points_generator=SoundPointsGenerator(
-            (0.1538, 0.3076),
+            (DURATION_PER_NOTE, DURATION_PER_NOTE * 2),
             (0.7, 0.3),
-            1,
-            0.3076,
+            DURATION_PER_NOTE * 10,
+            DURATION_PER_NOTE * 5,
             1,
             pang.gen_pitches_from_sieve(
                 abjad.Pattern(
@@ -99,7 +106,7 @@ def _generate_third_sequence() -> pang.Sequence:
                 low=-7,
                 high=24,
             ),
-            seed=8346865238658648254529,
+            seed=2361858365134151226423545225536,
         ),
         sequence_duration=20,
     )

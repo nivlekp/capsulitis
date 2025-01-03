@@ -82,7 +82,7 @@ tszkiu-metronome-mark =
     "Tsz Kiu Pang"
   }
   tagline = ##f
-  title = "Sisyphus"
+  title = "Capsulitis"
   instrument = "for piano"
 }
 
@@ -136,7 +136,7 @@ tszkiu-metronome-mark =
 
   oddFooterMarkup = \markup \fill-line {
     \concat {
-      "Sisyphus"
+      "Capsulitis"
       "  "
       \char ##x2014
       "  "
@@ -150,7 +150,7 @@ tszkiu-metronome-mark =
 
   evenFooterMarkup = \markup \fill-line {
     \concat {
-      "Sisyphus"
+      "Capsulitis"
       "  "
       \char ##x2014
       "  "
@@ -171,7 +171,7 @@ end-note = {
         \column {
           \line {"Naarm"}
           \hspace #0
-          \line {"(November 2024)."}
+          \line {"(January 2025)."}
       }
     }
 }
