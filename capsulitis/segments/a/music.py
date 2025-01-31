@@ -49,8 +49,8 @@ def _q_schema() -> nauert.QSchema:
 def _generate_first_sequence() -> pang.Sequence:
     return pang.Sequence.from_sound_points_generator(
         sound_points_generator=SoundPointsGenerator(
-            (DURATION_PER_NOTE, DURATION_PER_NOTE * 2),
-            (0.7, 0.3),
+            (DURATION_PER_NOTE, DURATION_PER_NOTE * 2, DURATION_PER_NOTE * 3),
+            (0.3, 0.4, 0.3),
             DURATION_PER_NOTE * 10,
             DURATION_PER_NOTE * 5,
             1,
@@ -71,9 +71,9 @@ def _generate_first_sequence() -> pang.Sequence:
 def _generate_second_sequence() -> pang.Sequence:
     return pang.Sequence.from_sound_points_generator(
         sound_points_generator=SoundPointsGenerator(
-            (DURATION_PER_NOTE, DURATION_PER_NOTE * 2),
-            (0.7, 0.3),
-            DURATION_PER_NOTE * 10,
+            (DURATION_PER_NOTE, DURATION_PER_NOTE * 2, DURATION_PER_NOTE * 3),
+            (0.5, 0.3, 0.2),
+            DURATION_PER_NOTE * 20,
             DURATION_PER_NOTE * 5,
             1,
             pang.gen_pitches_from_sieve(
@@ -81,10 +81,10 @@ def _generate_second_sequence() -> pang.Sequence:
                     indices=library.THIRD_MODE_OF_LIMITED_TRANSPOSITION, period=12
                 ).rotate(n=2),
                 origin=0,
-                low=-7,
-                high=24,
+                low=0,
+                high=30,
             ),
-            seed=28736483686191663276472395,
+            seed=83716487435693869156986,
         ),
         sequence_duration=20,
     )
@@ -93,8 +93,8 @@ def _generate_second_sequence() -> pang.Sequence:
 def _generate_third_sequence() -> pang.Sequence:
     return pang.Sequence.from_sound_points_generator(
         sound_points_generator=SoundPointsGenerator(
-            (DURATION_PER_NOTE, DURATION_PER_NOTE * 2),
-            (0.7, 0.3),
+            (DURATION_PER_NOTE, DURATION_PER_NOTE * 2, DURATION_PER_NOTE * 3),
+            (0.2, 0.4, 0.4),
             DURATION_PER_NOTE * 10,
             DURATION_PER_NOTE * 5,
             1,
